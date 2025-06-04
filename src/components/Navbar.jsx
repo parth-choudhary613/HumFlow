@@ -1,15 +1,14 @@
+// src/components/Navbar.jsx
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+function Navbar() {
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
+    <nav style={{ padding: '1rem', background: '#f5f5f5' }}>
+      <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
+      <Link to="/about" style={{ marginRight: '1rem' }}>About</Link>
+      <Link to="/contact">Contact</Link>
     </nav>
   );
-};
+}
 
 export default Navbar;

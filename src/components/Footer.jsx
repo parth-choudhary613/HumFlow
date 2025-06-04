@@ -1,9 +1,10 @@
-const Footer = () => {
+// src/components/Footer.jsx
+function Footer() {
   return (
-    <footer>
-      <p>© 2025 Humflow. All rights reserved.</p>
+    <footer style={{ padding: '1rem', background: '#eee', textAlign: 'center' }}>
+      <p>&copy; {new Date().getFullYear()} My Website</p>
     </footer>
   );
-};
+}
 
 export default Footer;
