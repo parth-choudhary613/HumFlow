@@ -1,5 +1,11 @@
-// src/pages/Home.jsx
-function Home() {
-  return <h1 style={{ color: 'green' }}>This is the Home Page</h1>;
+import React from 'react'
+
+const Home = () => {
+  return (
+   <>
+   
+   </>
+  )
 }
-export default Home;
+
+export default Home
