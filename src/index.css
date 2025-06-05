@@ -1,1 +1,32 @@
 @import "tailwindcss";
+.bg-blush {
+  background-color: #F5E3E0;
+}
+.bg-rose {
+  background-color: #E8B4BC;
+}
+.bg-orchid {
+  background-color: #D282A6;
+}
+.bg-plum {
+  background-color: #6E4555;
+}
+.bg-charcoal {
+  background-color: #3A3238;
+}
+
+.text-blush {
+  color: #F5E3E0;
+}
+.text-rose {
+  color: #E8B4BC;
+}
+.text-orchid {
+  color: #D282A6;
+}
+.text-plum {
+  color: #6E4555;
+}
+.text-charcoal {
+  color: #3A3238;
+}
