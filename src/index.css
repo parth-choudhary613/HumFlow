@@ -1,32 +1,39 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
 .bg-blush {
-  background-color: #F5E3E0;
+  background-color: #f5e3e0;
 }
 .bg-rose {
-  background-color: #E8B4BC;
+  background-color: #e8b4bc;
 }
 .bg-orchid {
-  background-color: #D282A6;
+  background-color: #d282a6;
 }
 .bg-plum {
-  background-color: #6E4555;
+  background-color: #6e4555;
 }
 .bg-charcoal {
-  background-color: #3A3238;
+  background-color: #3a3238;
 }
 
 .text-blush {
-  color: #F5E3E0;
+  color: #f5e3e0;
 }
 .text-rose {
-  color: #E8B4BC;
+  color: #e8b4bc;
 }
 .text-orchid {
-  color: #D282A6;
+  color: #d282a6;
 }
 .text-plum {
-  color: #6E4555;
+  color: #6e4555;
 }
 .text-charcoal {
-  color: #3A3238;
+  color: #3a3238;
+}
+
+.font-style{
+     font-family: "IM Fell Great Primer SC", serif;
+     font-weight: 400;
+  font-style: normal;
 }
