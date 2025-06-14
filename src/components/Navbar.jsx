@@ -7,7 +7,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md bg-blush py-3 shadow-xl/30 backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:top-6 md:rounded-3xl lg:max-w-screen-lg">
       <div className="relative flex items-center justify-between px-4">
         {/* === Logo (center on mobile, left on larger screens) === */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
@@ -55,13 +55,13 @@ function Navbar() {
               to="#"
               className="rounded-xl bg-white px-3 py-2 text-sm  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition"
             >
-              Light
+              Mute
             </Link>
             <Link
               to="#"
               className="rounded-xl bg-charcoal px-3 py-2 text-sm  text-gray-100 shadow-sm hover:bg-gray-900 transition"
             >
-              Dark 
+              LogIn
             </Link>
           </div>
         </div>
@@ -96,13 +96,13 @@ function Navbar() {
               to="#"
               className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition"
             >
-              Light
+              Mute
             </Link>
             <Link
               to="#"
               className="rounded-xl bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:text-gray-100 shadow-sm transition"
             >
-              Dark
+              LogIn
             </Link>
           </div>
         </div>
