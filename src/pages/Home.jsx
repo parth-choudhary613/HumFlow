@@ -10,10 +10,10 @@ const Home = () => {
     <>
       <div className=" text-shadow-orange-800 flex flex-col items-center justify-start min-h-screen  text-white p-10">
         {/* Header Section */}
-        <h1 className=" text-sky-orange-800 text-6xl md:text-9xl font-bold text-gray-100 mt-40 mb-4 text-center ">
+        <h1 className=" text-shadow-lg/30 text-6xl md:text-9xl font-bold text-gray-100 mt-40 mb-4 text-center ">
           humflow
         </h1>
-        <p className="text-lg text-gray-300 mb-12 text-center">
+        <p className=" text-shadow-lg/30 text-lg text-gray-100 mb-12 text-center">
           This is the home page. Explore our content!
         </p>
 
