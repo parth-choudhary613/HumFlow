@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaPlay, FaPause, FaTrash, FaWaveSquare } from "react-icons/fa";
-
+import SoundCards from "../components/SoundCards";
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -50,6 +50,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <SoundCards />
     </>
   );
 };
