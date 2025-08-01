@@ -1,43 +1,22 @@
-// MusicCard.jsx
 import { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaRegHeart } from "react-icons/fa";
 
-const MusicCard = ({
-  audioSrc,
-  videoSrc,
-  thumbnail,
-  title,
-  id,
-  currentlyPlayingId,
-  setCurrentlyPlayingId,
-}) => {
-  const [volume, setVolume] = useState(50);
+const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(100);
   const audioRef = useRef(null);
   const videoRef = useRef(null);
-  const isPlaying = currentlyPlayingId === id;
 
   const togglePlay = () => {
     if (isPlaying) {
-      setCurrentlyPlayingId(null); // Stop current
+      audioRef.current.pause();
+      videoRef.current.pause();
     } else {
-      setCurrentlyPlayingId(id); // Start this
+      audioRef.current.play();
+      videoRef.current.play();
     }
+    setIsPlaying(!isPlaying);
   };
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    const video = videoRef.current;
-
-    if (isPlaying) {
-      audio?.play();
-      video?.play();
-    } else {
-      audio?.pause();
-      video?.pause();
-      audio.currentTime = 0;
-      video.currentTime = 0;
-    }
-  }, [isPlaying]);
 
   const handleVolumeChange = (e) => {
     const vol = parseInt(e.target.value);
@@ -45,9 +24,16 @@ const MusicCard = ({
     if (audioRef.current) audioRef.current.volume = vol / 100;
   };
 
+  useEffect(() => {
+    return () => {
+      audioRef.current?.pause();
+      videoRef.current?.pause();
+    };
+  }, []);
+
   return (
     <div className="w-72 sm:w-80 md:w-96 h-[28rem] sm:h-96 rounded-xl relative overflow-hidden shadow-lg">
-      {/* VIDEO BG */}
+      {/* Background video */}
       <video
         ref={videoRef}
         src={videoSrc}
@@ -56,8 +42,8 @@ const MusicCard = ({
         loop
       />
 
-      {/* GLASS OVERLAY */}
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/40 rounded-xl p-4 border-4 border-white flex flex-col justify-between z-10">
+      {/* Glass UI */}
+      <div className="absolute inset-0 bg-black/20 rounded-xl p-4 border-4 border-white flex flex-col justify-between z-10">
         <div>
           <div
             style={{ backgroundImage: `url(${thumbnail})` }}
