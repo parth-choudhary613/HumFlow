@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaPlay, FaPause, FaTrash, FaWaveSquare } from "react-icons/fa";
+import { FaPlay, FaPause, FaTrash, FaRegHeart } from "react-icons/fa";
 import MusicCard from "../components/SoundCards";
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -22,7 +22,7 @@ const Home = () => {
           {/* Top Buttons */}
           <div className="w-full flex justify-between px-6 mb-16">
             <button className="p-3 border border-white rounded-full hover:bg-white hover:text-black transition">
-              <FaWaveSquare className="text-xl" />
+              <FaRegHeart className="text-xl" />
             </button>
             <button className="p-3 border border-white rounded-full hover:bg-white hover:text-black transition">
               <FaTrash className="text-xl" />

@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { FaPlay, FaPause, FaStar } from "react-icons/fa";
+import { FaPlay, FaPause, FaRegHeart } from "react-icons/fa";
 
 const MusicCard = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -29,22 +29,22 @@ const MusicCard = () => {
         <div className="absolute inset-0  backdrop-blur-xl rounded-xl flex items-center justify-center p-4 border-4 border-white shadow-xl/30">
           <div className="w-full h-80 bg-black/60 rounded-xl text-white p-1">
             <div className="">
-              <div style={{ backgroundImage: `url('https://t3.ftcdn.net/jpg/05/17/06/58/360_F_517065884_FvzSCVtlJ6OwDBE0MD8UxSnk7NsXWzdG.jpg')` }} className="w-16 h-16 bg-cover rounded-full">
                 
               </div>
-              <FaStar className="text-yellow-400 text-xl cursor-pointer" />
+      <div style={{ backgroundImage: `url('https://png.pngtree.com/png-clipart/20220119/ourmid/pngtree-mountain-line-draft-decorative-elements-png-image_4236523.png')` }} className="w-auto h-40 rounded-lg bg-cover bg-center mx-auto mb-4 shadow-lg">
+              <FaRegHeart className="text-gray-100 text-xl cursor-pointer" />
             </div>
 
-            <div className="my-6 flex flex-col items-center">
+            <div className=" my-5 flex flex-col items-center">
               <button
                 onClick={togglePlay}
-                className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:scale-110 transition"
+                className="w-10 h-10 border border-white rounded-full text-black flex items-center justify-center"
               >
-                {isPlaying ? <FaPause size={24} /> : <FaPlay size={24} />}
+                {isPlaying ? <FaPause size={14} color="white" /> : <FaPlay size={14} color="white" />}
               </button>
             </div>
 
-            <div className="flex flex-col items-center">
+            <div className="  flex flex-col items-center">
               <input
                 type="range"
                 min="0"
