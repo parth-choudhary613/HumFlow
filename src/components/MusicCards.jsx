@@ -39,7 +39,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         src={videoSrc}
         className="absolute inset-0 object-cover w-full h-full"
         muted
-        loop
+        loop="true"
       />
 
       {/* Glass UI */}
