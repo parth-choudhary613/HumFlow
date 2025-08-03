@@ -14,7 +14,7 @@ const Home = () => {
           humflow
         </h1>
         <p className=" text-shadow-lg/30 text-lg text-gray-100 mb-12 text-center">
-          This is the home page. Explore our content!
+          <h4>Flow with Hmmm...</h4>
         </p>
 
         {/* Player Section */}

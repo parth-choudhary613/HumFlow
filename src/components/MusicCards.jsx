@@ -32,25 +32,27 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
   }, []);
 
   return (
-    <div className="w-72 sm:w-80 md:w-96 h-[28rem] sm:h-96 rounded-xl relative overflow-hidden shadow-lg">
+    <>
+    <div className="w-full max-w-[20rem] min-h-[26rem] sm:min-h-[24rem] rounded-xl relative overflow-hidden shadow-lg glassneurophism">
       {/* Background video */}
       <video
         ref={videoRef}
         src={videoSrc}
-        className="absolute inset-0 object-cover w-full h-full"
+        className="absolute inset-0 w-full h-full object-cover"
         muted
-        loop="true"
+        loop
+        playsInline
       />
 
-      {/* Glass UI */}
-      <div className="absolute inset-0 bg-black/20 rounded-xl p-4 border-4 border-white flex flex-col justify-between z-10">
+      {/* Glass UI overlay */}
+      <div className="absolute inset-0 bg-black/30 rounded-xl p-4  flex flex-col justify-between z-10">
         <div>
           <div
             style={{ backgroundImage: `url(${thumbnail})` }}
-            className="w-full h-40 bg-cover bg-center rounded-lg mb-4"
+            className="w-full h-40 bg-cover bg-center rounded-lg"
           ></div>
-          <h2 className="text-white font-semibold text-lg mb-2">{title}</h2>
-          <FaRegHeart className="text-gray-100 text-xl cursor-pointer" />
+          <h2 className="text-white font-semibold text-lg mt-2 truncate">{title}</h2>
+          <FaRegHeart className="text-gray-100 text-xl cursor-pointer mt-1" />
         </div>
 
         <div className="my-4 flex justify-center">
@@ -81,6 +83,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         <audio ref={audioRef} src={audioSrc} preload="auto" />
       </div>
     </div>
+    </>
   );
 };
 

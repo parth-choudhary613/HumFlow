@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
+body {
+  font-family: 'IM Fell Great Primer SC', serif;
+}
 /* Ensure the app container is full-screen */
 .app-container {
   position: relative;
@@ -19,7 +22,7 @@
   /* Center the video around its midpoint */
   transform: translate(-50%, -50%);
   object-fit: cover;
-  filter: blur(6px) brightness(70%);
+  filter: blur(2px) brightness(100%);
   z-index: -1;
 }
 
