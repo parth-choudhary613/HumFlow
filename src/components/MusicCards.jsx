@@ -25,14 +25,29 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
   };
 
   useEffect(() => {
+    const audio = audioRef.current;
+
+    const handleEnded = () => {
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+    };
+
+    if (audio) {
+      audio.addEventListener("ended", handleEnded);
+    }
+
     return () => {
-      audioRef.current?.pause();
-      videoRef.current?.pause();
+      if (audio) {
+        audio.removeEventListener("ended", handleEnded);
+        audio.pause();
+        videoRef.current?.pause();
+      }
     };
   }, []);
 
   return (
-    <>
     <div className="w-full max-w-[20rem] min-h-[26rem] sm:min-h-[24rem] rounded-xl relative overflow-hidden shadow-lg glassneurophism">
       {/* Background video */}
       <video
@@ -45,7 +60,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
       />
 
       {/* Glass UI overlay */}
-      <div className="absolute inset-0 bg-black/30 rounded-xl p-4  flex flex-col justify-between z-10">
+      <div className="absolute inset-0 bg-black/30 rounded-xl p-4 flex flex-col justify-between z-10">
         <div>
           <div
             style={{ backgroundImage: `url(${thumbnail})` }}
@@ -83,7 +98,6 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         <audio ref={audioRef} src={audioSrc} preload="auto" />
       </div>
     </div>
-    </>
   );
 };
 
