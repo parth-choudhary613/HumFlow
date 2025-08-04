@@ -8,19 +8,19 @@ const Home = () => {
 
   return (
     <>
-      <div className=" text-shadow-orange-800 flex flex-col items-center justify-start min-h-screen  text-white p-10">
+      <div className=" flex flex-col items-center justify-start text-white p-2">
         {/* Header Section */}
-        <h1 className=" text-shadow-lg/30 text-6xl md:text-9xl font-bold text-gray-100 mt-40 mb-4 text-center ">
+        <h1 className=" text-shadow-lg/30 text-6xl md:text-8xl sm:text-4xl font-bold text-gray-100 mt-20  text-center ">
           humflow
         </h1>
-        <p className=" text-shadow-lg/30 text-lg text-gray-100 mb-12 text-center">
+        <div className=" text-shadow-lg/30 text-lg text-gray-100  text-center">
           <h4>Flow with Hmmm...</h4>
-        </p>
+        </div>
 
         {/* Player Section */}
-        <div className="w-full max-w-4xl rounded-xl py-16 px-4 flex flex-col items-center justify-center relative">
+        <div className="w-140 max-w-4xl rounded-xl py-1 px-2 flex flex-col items-center justify-center relative">
           {/* Top Buttons */}
-          <div className="w-full flex justify-between px-6 mb-16">
+          <div className="w-80 lg:w-full flex justify-between px-4 mb-6">
             <button className="p-3 border border-white rounded-full hover:bg-white hover:text-black transition">
               <FaRegHeart className="text-xl" />
             </button>
@@ -32,13 +32,13 @@ const Home = () => {
           {/* Play Button */}
           <button
             onClick={togglePlay}
-            className="text-white text-7xl mb-16 hover:scale-110 transition"
+            className="text-white text-6xl m-2 hover:scale-110 transition"
           >
             {isPlaying ? <FaPause /> : <FaPlay />}
           </button>
 
           {/* Bottom Buttons */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 pt-4">
             {["TIMERS", "MIXES", "SHARE"].map((label) => (
               <button
                 key={label}

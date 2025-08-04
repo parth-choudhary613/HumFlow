@@ -7,8 +7,8 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:top-6 md:rounded-3xl lg:max-w-screen-lg glassneurophism">
-      <div className="relative flex items-center justify-between px-4">
+    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:top-6 md:rounded-3xl lg:max-w-screen-lg text-white">
+      <div className="relative flex items-center justify-between white px-6">
         {/* === Logo (center on mobile, left on larger screens) === */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Link to="/" className="flex items-center">
@@ -18,22 +18,22 @@ function Navbar() {
         </div>
 
         {/* === Center Nav (visible only on md and up) === */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-6">
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8 ">
           <Link
             to="/about"
-            className="px-2 py-1 text-sm font-medium text-gray-900 hover:bg-rose-200 rounded-lg transition outline-0 hover:outline hover:outline-1 hover:outline-rose-300"
+            className="px-2 py-1 text-md font-medium text-gray-100 "
           >
             About
           </Link>
           <Link
             to="/"
-            className="px-2 py-1 text-sm font-medium text-gray-900 hover:bg-rose-200 rounded-lg transition outline-0 hover:outline hover:outline-1 hover:outline-rose-300"
+            className="px-2 py-1 text-md font-medium text-gray-100"
           >
             Home
           </Link>
           <Link
             to="/contact"
-            className="px-2 py-1 text-sm font-medium text-gray-900 hover:bg-rose-200 rounded-lg transition outline-0 hover:outline hover:outline-1 hover:outline-rose-300"
+            className="px-2 py-1 text-md font-medium text-gray-100 "
           >
             Contact
           </Link>
