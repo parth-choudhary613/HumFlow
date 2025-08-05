@@ -91,7 +91,7 @@ const MoreCards = ({ alwaysShow = false }) => {
                 <input
                   type="range"
                   min="0"
-                  max="100"
+                  max="1"
                   step="0.01"
                   value={volumes[item.id] || 0.5}
                   onChange={(e) => handleVolumeChange(e, item)}

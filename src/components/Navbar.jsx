@@ -7,12 +7,12 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg text-white">
-      <div className="relative flex items-center justify-between white px-6">
+    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:backdrop-blur-lg md:top-6 rounded-b-3xl md:rounded-3xl lg:max-w-screen-lg text-white">
+      <div className="relative flex items-center justify-between h-12 white px-6">
         {/* === Logo (center on mobile, left on larger screens) === */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="Logo" className="w-14 h-auto" />
+            <img src={Logo} alt="Logo" className="w-16 h-auto" />
             <span className="sr-only">Website Title</span>
           </Link>
         </div>
@@ -43,7 +43,7 @@ function Navbar() {
         <div className="ml-auto flex items-center gap-3">
           {/* Toggle button for mobile */}
           <button
-            className="md:hidden text-gray-700 hover:text-black transition"
+            className="md:hidden text-gray-100 hover:text-black transition"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
