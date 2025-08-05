@@ -49,6 +49,13 @@ const cardData = [
     thumbnail: "assets/waterfall.png",
     title: "Waterfall",
   },
+  {
+    id: 8,
+    audioSrc: "/assets/audio8.mp3",
+    videoSrc: "https://videos.pexels.com/video-files/2122934/2122934-hd_1920_1080_30fps.mp4",
+    thumbnail: "https://cdn-icons-png.flaticon.com/512/31/31942.png",
+    title: "Wind Chimes",
+  },
   
 ];
 

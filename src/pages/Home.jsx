@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaPlay, FaPause, FaTrash, FaRegHeart } from "react-icons/fa";
-import MusicCard from "../components/SoundCards";
+import SoundCard from "../components/SoundCards";
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -42,7 +42,7 @@ const Home = () => {
             {["TIMERS", "MIXES", "SHARE"].map((label) => (
               <button
                 key={label}
-                className="px-5 py-2 border border-white rounded hover:bg-white hover:text-black transition"
+                className="px-5 py-2 border border-white rounded hover:bg-white hover:text-black transition  backdrop-blur-sm"
               >
                 {label}
               </button>
@@ -50,7 +50,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      < MusicCard />
+      < SoundCard />
     </>
   );
 };

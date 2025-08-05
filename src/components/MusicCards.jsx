@@ -34,8 +34,8 @@ const [liked, setLiked] = useState(false);
   }, []);
 
   return (
-    <>
- <div className="w-35 max-w-[11.5rem] min-h-[16rem] sm:min-h-[15rem] rounded-xl relative overflow-hidden shadow-lg">
+  <>
+ <div className="w-41 lg:w-full max-w-[11.5rem] min-h-[16rem] sm:min-h-[15rem] rounded-xl relative overflow-hidden shadow-lg">
   {/* Background video */}
   <video
     ref={videoRef}
@@ -44,7 +44,7 @@ const [liked, setLiked] = useState(false);
     muted
     loop
     playsInline
-  />
+    />
 
   {/* Glass UI overlay */}
   <div className="absolute inset-0 bg-black/30 rounded-xl p-2.5 flex flex-col justify-between z-10">
@@ -59,12 +59,12 @@ const [liked, setLiked] = useState(false);
         <FaHeart
           className="text-rose-900 text-base cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
           onClick={() => setLiked(false)}
-        />
-      ) : (
-        <FaRegHeart
+          />
+        ) : (
+          <FaRegHeart
           className="text-gray-100 text-base cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
           onClick={() => setLiked(true)}
-        />
+          />
       )}
     </div>
 
@@ -72,7 +72,7 @@ const [liked, setLiked] = useState(false);
       <button
         onClick={togglePlay}
         className="w-9 h-9 border border-white rounded-full flex items-center justify-center"
-      >
+        >
         {isPlaying ? (
           <FaPause size={12} color="white" />
         ) : (
@@ -97,7 +97,8 @@ const [liked, setLiked] = useState(false);
   </div>
 </div>
 
-    </>
+        </>
+    
   );
 };
 
