@@ -7,8 +7,8 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="border-4 border-white  fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:backdrop-blur-lg md:top-6 rounded-b-3xl md:rounded-3xl lg:max-w-screen-lg text-white">
-      <div className="relative flex items-center justify-between h-12 white px-6">
+    <header className="border-4 border-white lg:text-white fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:backdrop-blur-lg md:top-6 rounded-b-3xl md:rounded-3xl lg:max-w-screen-lg text-white">
+      <div className="relative flex items-center justify-between h-12 text-white px-6">
         {/* === Logo (center on mobile, left on larger screens) === */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Link to="/" className="flex items-center">
@@ -18,10 +18,11 @@ function Navbar() {
         </div>
 
         {/* === Center Nav (visible only on md and up) === */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8 ">
+        <nav className="hidden text-white
+         md:flex absolute left-1/2 -translate-x-1/2 gap-8 ">
           <Link
             to="/about"
-            className="px-2 py-1 text-md font-medium text-gray-100 "
+            className="px-2 py-1 text-md font-medium text-white "
           >
             About
           </Link>
@@ -72,21 +73,24 @@ function Navbar() {
         <div className="flex flex-col mt-3 items-center gap-3 md:hidden px-4 transition-all duration-300">
           <Link
             to="/about"
-            className="px-3 py-2 text-sm font-medium text-gray-900 hover:bg-rose-200 rounded-lg w-full text-center"
+            className="px-3 py-2 text-sm font-medium text-white
+              rounded-lg w-full text-center"
             onClick={() => setMenuOpen(false)}
           >
             About
           </Link>
           <Link
             to="/"
-            className="px-3 py-2 text-sm font-medium text-gray-900 hover:bg-rose-200 rounded-lg w-full text-center"
+            className="px-3 py-2 text-sm font-medium text-white
+              rounded-lg w-full text-center"
             onClick={() => setMenuOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/contact"
-            className="px-3 py-2 text-sm font-medium text-gray-900 hover:bg-rose-200 rounded-lg w-full text-center"
+            className="px-3 py-2 text-sm font-medium text-white
+              rounded-lg w-full text-center"
             onClick={() => setMenuOpen(false)}
           >
             Contact
