@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="backdrop-blur-sm text-sm text-gray-100 py-4 px-4  text-sm">
-      <div className="max-w-4xl mx-auto flex flex-col gap-4 items-center text-center">
+    <footer className="backdrop-blur-sm text-xl text-gray-100 py-4 px-4">
+      <div className="max-w-4xl w-full mx-auto flex flex-col gap-4 items-center text-center">
 
         <p className="text-gray-100 font-semibold">
-          NatureSoundSpace
+          HumFlow
         </p>
-        <p className="text-sm leading-relaxed">
+        <p className="text-sm sm:text-lg leading-relaxed">
           Relaxing ambient sound mixer for work, sleep, and focus. Inspired by the idea of creating a calm environment with natural audio experiences.
         </p>
 
@@ -23,7 +23,7 @@ const Footer = () => {
            </div>
 
         {/* Extra Info */}
-        <p className="text-xs leading-relaxed">
+        <p className="text-lg leading-relaxed">
           Sounds mixed and played locally in your browser – nothing is uploaded. No login required.
         </p>
 

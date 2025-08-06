@@ -5,7 +5,6 @@ import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
-import MoreCard from "./components/MoreCards";
 import MoreSoundsPage from "./pages/MoreSoundsPage";
 
 import './App.css';
@@ -28,7 +27,6 @@ function App() {
              <Route path="/moresounds" element={<MoreSoundsPage />} />
           </Routes>
         </main>
-        <MoreCard />
         <Footer />
       </div>
     </div>
