@@ -12,8 +12,8 @@ const Home = () => {
     <>
       <div className=" flex flex-col items-center justify-start text-white p-2">
         {/* Header Section */}
-        <h1 className=" text-shadow-lg/30 text-6xl md:text-8xl sm:text-4xl font-bold text-gray-100 mt-20  text-center ">
-          humflow
+        <h1 className=" text-6xl md:text-8xl sm:text-4xl text-gray-100 mt-28 tropical-heading text-center ">
+          HumFlow
         </h1>
         <div className=" text-shadow-lg/30 text-lg text-gray-100  text-center">
           <h4>Flow with Hmmm...</h4>

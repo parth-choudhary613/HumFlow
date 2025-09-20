@@ -6,6 +6,9 @@ body {
   margin: 0%;
   padding: 0%;
 }
+.tropical-heading {
+  font-family: 'TropicalTasteDemo', sans-serif;
+}
 
  .bungee-outline-regular {
   font-family: "National Park", sans-serif;
@@ -75,7 +78,5 @@ body {
 
 @font-face {
   font-family: 'TropicalTasteDemo';
-  src: url('../public/Tropical\ Taste\ Demo.otf') format('opentype');
-  font-weight: normal;
-    font-style: normal;
+  src: url('./fonts/Tropical Taste Demo.otf') format('opentype');
 }
