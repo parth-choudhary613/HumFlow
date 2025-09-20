@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaPlay, FaPause, FaTrash, FaRegHeart } from "react-icons/fa";
 import SoundCard from "../components/SoundCards";
 import Extracards from "../components/MoreCards"
+import ASMR from "../components/Asmr";
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -53,6 +54,7 @@ const Home = () => {
       </div>
       < SoundCard />
       <Extracards />  
+      <ASMR />
     </>
   );
 };
