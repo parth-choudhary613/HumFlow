@@ -7,7 +7,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="border-4 border-white lg:text-white fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:backdrop-blur-lg md:top-6 rounded-b-3xl md:rounded-3xl lg:max-w-screen-lg text-white">
+    <header className="border border-[#1B5E20] lg:text-white fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-screen-md py-3 shadow-xl/30 backdrop-blur-sm md:backdrop-blur-lg md:top-6 rounded-b-3xl md:rounded-3xl lg:max-w-screen-lg text-white">
       <div className="relative flex items-center justify-between h-12 text-white px-6">
         {/* === Logo (center on mobile, left on larger screens) === */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">

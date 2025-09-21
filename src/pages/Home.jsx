@@ -3,6 +3,7 @@ import { FaPlay, FaPause, FaTrash, FaRegHeart } from "react-icons/fa";
 import SoundCard from "../components/SoundCards";
 import Extracards from "../components/MoreCards"
 import ASMR from "../components/Asmr";
+import SplitText from "./SplitText";
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -12,8 +13,20 @@ const Home = () => {
     <>
       <div className=" flex flex-col items-center justify-start text-white p-2">
         {/* Header Section */}
-        <h1 className=" text-6xl md:text-8xl sm:text-4xl text-gray-100 mt-28 tropical-heading text-center ">
-          HumFlow
+        <h1 className=" text-8xl md:text-10xl sm:text-8xl text-[#E0E0E0] mt-28 tropical-heading text-center ">
+          <SplitText
+  text="HumFlow"
+  delay={100}
+  duration={3}
+  ease="power3.out"
+  splitType="chars"
+  from={{ opacity: 0, y: 40 }}
+  to={{ opacity: 1, y: 0 }}
+  threshold={0.1}
+  rootMargin="-100px"
+  textAlign="center"
+  onLetterAnimationComplete={Home}
+/>
         </h1>
         <div className=" text-shadow-lg/30 text-lg text-gray-100  text-center">
           <h4>Flow with Hmmm...</h4>

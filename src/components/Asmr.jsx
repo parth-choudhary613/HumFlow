@@ -18,7 +18,7 @@ const SustainabilitySection = () => {
         {/* Right Text */}
         <div className="w-full lg:w-1/2">
           {/* Heading */}
-          <h2 className="text-12xl md:text-5xl tracking-wide opacity-90 mb-2 bungee-outline-regular">
+          <h2 className="text-8xl md:text-7xl tracking-wide opacity-90 mb-2 tropical-heading">
             Let’s Drive Sustainability
           </h2>
           <h3 className="text-2xl md:text-3xl font-semibold text-green-100 mb-1">
