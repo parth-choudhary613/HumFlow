@@ -1,16 +1,19 @@
 import React from "react";
-import plantImage from "../assets/parth.jpg"; // Use your exact reference image here
-
+import plantImage from "../assets/ASMR.png"; 
+import Image1 from "../assets/asmr1.jpeg"; 
+import Image2 from "../assets/asmr2.jpg"; 
+import Image3 from "../assets/asmr3.jpg";
+import SplitText from "../pages/SplitText";
 const SustainabilitySection = () => {
   return (
     <section className="backdrop-blur-sm text-white px-4 sm:px-8 lg:px-16 py-12">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12">
         
         {/* Left Image */}
-        <div className="flex-shrink-0 w-full lg:w-1/2">
+        <div className="flex-shrink-0 w-full lg:w-1/2 sm:w-80 lg:h-full overflow-hidden">
           <img
             src={plantImage}
-            alt="Plant in Hands"
+            alt="Nature Vibes"
             className="rounded-2xl w-full object-cover"
           />
         </div>
@@ -18,50 +21,47 @@ const SustainabilitySection = () => {
         {/* Right Text */}
         <div className="w-full lg:w-1/2">
           {/* Heading */}
-          <h2 className="text-8xl md:text-7xl tracking-wide opacity-90 mb-2 tropical-heading">
-            Let’s Drive Sustainability
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold text-green-100 mb-1">
-            To Thrive on This Planet
+    <SplitText
+  text="Why ASMR ?"
+  className="text-6xl md:text-7xl text-green-100 tropical-heading"
+  delay={100}
+  duration={3}
+  ease="power3.out"
+  splitType="chars"
+  from={{ opacity: 0, y: 40 }}
+  to={{ opacity: 1, y: 0 }}
+  threshold={0.1}
+  rootMargin="-100px"
+  textAlign="center"
+  onLetterAnimationComplete={SustainabilitySection}
+/>
+          
+         
+          <h3 className="text-2xl md:text-3xl font-semibold text-green-100 mb-3">
+            Autonomous Sensory Meridian Response <span className="text-green-300 tropical-heading text-6xl">(ASMR)</span>
           </h3>
           <p className="text-lg text-green-200 mb-10">
-            Live in Harmony with Nature Every Day
-          </p>
+            ASMR, which stands for Autonomous Sensory Meridian Response, is a term for a tingling, calming sensation experienced in response to certain sounds, visuals, or touch. It's not a slang term but an acronym for a biological response to stimuli like whispering, crinkling, or slow, deliberate movements, which can induce feelings of relaxation and well-being in some people. 
+               </p>
 
           {/* Timeline */}
-          <div className="relative border-l border-green-600 pl-6 space-y-12">
+         
             {/* 1 */}
-            <div className="relative">
-              <span className="absolute -left-[9px] top-1 w-4 h-4 bg-green-400 rounded-full"></span>
-              <p className="text-green-200">
-                There’s just something so special about the traditional ways of living in harmony with nature.
-              </p>
-            </div>
-            {/* 2 */}
-            <div className="relative">
-              <span className="absolute -left-[9px] top-1 w-4 h-4 bg-green-400 rounded-full"></span>
-              <p className="text-green-200">
-                It’s truly inspiring, and that’s why we aspire to bring this wisdom to the modern world.
-              </p>
-            </div>
-            {/* 3 */}
-            <div className="relative">
-              <span className="absolute -left-[9px] top-1 w-4 h-4 bg-green-400 rounded-full"></span>
-              <p className="text-green-200">
-                With every product we offer, from toothbrushes to tooth powders, we make made with love and care to protect both you and the planet.
-              </p>
-            </div>
-            {/* 4 */}
-            <div className="relative">
-              <span className="absolute -left-[9px] top-1 w-4 h-4 bg-green-400 rounded-full"></span>
-              <p className="text-green-200">
-                We believe that by incorporating sustainable practices into our daily routines, we can all make a difference and live in harmony with nature.
-              </p>
-            </div>
+           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div>
+        <img class="h-30  rounded-lg" src={Image1} alt="" />
+    </div>
+    <div>
+        <img class="h-30 w-80 rounded-lg" src={Image2} alt=""/>
+    </div>
+    <div>
+        <img class="h-30 w-80 rounded-lg" src={Image3} alt=""/>
+    </div>
+    </div>
           </div>
         </div>
 
-      </div>
+      
     </section>
   );
 };
