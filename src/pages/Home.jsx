@@ -36,10 +36,10 @@ const Home = () => {
         <div className="w-140 max-w-4xl rounded-xl py-1 px-2 flex flex-col items-center justify-center relative">
           {/* Top Buttons */}
           <div className="w-80 lg:w-full flex justify-between px-4 mb-6">
-            <button className="p-3 border border-white rounded-full hover:bg-white hover:text-black transition">
+            <button className="p-3 border border-[#1B5E20] rounded-full hover:bg-white hover:text-black transition">
               <FaRegHeart className="text-xl" />
             </button>
-            <button className="p-3 border border-white rounded-full hover:bg-white hover:text-black transition">
+            <button className="p-3 border border-[#1B5E20] rounded-full hover:bg-white hover:text-black transition">
               <FaTrash className="text-xl" />
             </button>
           </div>
@@ -57,7 +57,7 @@ const Home = () => {
             {["TIMERS", "MIXES", "SHARE"].map((label) => (
               <button
                 key={label}
-                className="px-5 py-2 border border-white rounded hover:bg-white hover:text-black transition  backdrop-blur-sm"
+                className="px-5 py-2 border border-[#1B5E20] rounded-3xl hover:bg-[#1B5E20] hover:text-white transition  backdrop-blur-sm"
               >
                 {label}
               </button>

@@ -1,8 +1,6 @@
 import React from "react";
 import plantImage from "../assets/ASMR.png"; 
-import Image1 from "../assets/asmr1.jpeg"; 
-import Image2 from "../assets/asmr2.jpg"; 
-import Image3 from "../assets/asmr3.jpg";
+import Image1 from "../assets/asmr1.png"; 
 import SplitText from "../pages/SplitText";
 const SustainabilitySection = () => {
   return (
@@ -47,16 +45,11 @@ const SustainabilitySection = () => {
           {/* Timeline */}
          
             {/* 1 */}
-           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+           <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
     <div>
-        <img class="h-30  rounded-lg" src={Image1} alt="" />
+        <img class="w-auto contrast-200 saturate-70" src={Image1} alt="" />
     </div>
-    <div>
-        <img class="h-30 w-80 rounded-lg" src={Image2} alt=""/>
-    </div>
-    <div>
-        <img class="h-30 w-80 rounded-lg" src={Image3} alt=""/>
-    </div>
+  
     </div>
           </div>
         </div>
