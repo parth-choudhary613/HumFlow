@@ -134,6 +134,12 @@ return (
       onClick={() => navigate(-1)}
       className="w-86 lg:w-240 md:w-176 border border-white text-white text-sm font-medium rounded-lg backdrop-blur-lg py-2 px-4 shadow-sm bg-transparent mt-6"
     >
+      Add Files
+    </button>
+    <button
+      onClick={() => navigate(-1)}
+      className="w-86 lg:w-240 md:w-176 border border-white text-white text-sm font-medium rounded-lg backdrop-blur-lg py-2 px-4 shadow-sm bg-transparent mt-6"
+    >
       ← Back
     </button>
 
