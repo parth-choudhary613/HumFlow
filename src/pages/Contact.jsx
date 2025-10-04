@@ -13,7 +13,7 @@ const Contact = () => {
               Whether you have a concern or simply want to say hello, we are here to facilitate communication with you.
             </p>
             <div className="flex md:items-center md:justify-start justify-center">
-              <button className="w-36 h-12 rounded-full bg-green-600 transition-all duration-700 hover:bg-indigo-800 shadow text-white text-center text-base font-semibold leading-6">
+              <button className="w-36 h-12 rounded-full bg-gray-100 transition-all duration-700 hover:bg-green-500 shadow text-black text-center text-base font-semibold leading-6">
                 Contact Us
               </button>
             </div>
