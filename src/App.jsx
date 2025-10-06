@@ -6,7 +6,6 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import MoreSoundsPage from "./pages/MoreSoundsPage";
-
 import './App.css';
 
 function App() {
@@ -18,10 +17,10 @@ function App() {
         <Navbar />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-             <Route path="/moresounds" element={<MoreSoundsPage />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path="/contact" element={<Contact/>} />
+             <Route path="/moresounds" element={<MoreSoundsPage/>} />
           </Routes>
         </main>
         <Footer />
