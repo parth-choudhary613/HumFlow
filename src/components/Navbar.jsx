@@ -21,19 +21,19 @@ function Navbar() {
         <nav className="hidden text-white
          md:flex absolute left-1/2 -translate-x-1/2 gap-8 ">
           <Link
-            to="/about"
+            to="#/about"
             className="px-2 py-1 text-md font-medium text-white "
           >
             About
           </Link>
           <Link
-            to="/"
+            to="#/"
             className="px-2 py-1 text-md font-medium text-gray-100"
           >
             Home
           </Link>
           <Link
-            to="/contact"
+            to="#/contact"
             className="px-2 py-1 text-md font-medium text-gray-100 "
           >
             Contact
