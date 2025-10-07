@@ -4,37 +4,31 @@ export const moreData = [
   {
     id: 1,
     title: 'Pebble Falling',
-    audio: () => import(`${import.meta.env.BASE_URL}assets/moresounds1.mp3`),
-    thumbnail: `${import.meta.env.BASE_URL}assets/FallingStone.png`
-  },
+    audio: 'assets/moresounds1.mp3',
+    thumbnail: 'assets/FallingStone.png'  },
   {
     id: 2,
     title: 'Water Bubbles',
-    audio: () => import(`${import.meta.env.BASE_URL}assets/moresounds2.mp3`),
-    thumbnail: `${import.meta.env.BASE_URL}assets/WaterBubbles.png`
-  },
+    audio: 'assets/moresounds2.mp3',
+    thumbnail: 'assets/WaterBubbles.png' },
   {
     id: 3,
     title: 'Water Walk',
-    audio: () => import(`${import.meta.env.BASE_URL}assets/moresounds3.mp3`),
-    thumbnail: `${import.meta.env.BASE_URL}assets/WaterWalk.png`
-  },
+    audio: 'assets/moresounds3.mp3',
+    thumbnail: 'assets/WaterWalk.png' },
   {
     id: 4,
     title: 'Bee Buzzing',
-    audio: () => import(`${import.meta.env.BASE_URL}assets/moresounds4.mp3`),
-    thumbnail: `${import.meta.env.BASE_URL}assets/BeeBuzzing.png`
-  },
+    audio: 'assets/moresounds4.mp3',
+    thumbnail: 'assets/BeeBuzzing.png' },
   {
     id: 5,
     title: 'Fire Crackling',
-    audio: () => import(`${import.meta.env.BASE_URL}assets/moresounds5.mp3`),
-    thumbnail: `${import.meta.env.BASE_URL}assets/FireCrackling.png`
-  },
+    audio: 'assets/moresounds5.mp3',
+    thumbnail: 'assets/FireCrackling.png' },
   {
     id: 6,
     title: 'Rain Drum',
-    audio: () => import(`${import.meta.env.BASE_URL}assets/moresounds6.mp3`),
-    thumbnail: `${import.meta.env.BASE_URL}assets/RainDrum.png`
-  },
-];
+    audio: 'assets/moresounds6.mp3',
+    thumbnail: 'assets/RainDrum.png' },
+  ];

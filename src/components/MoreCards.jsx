@@ -1,26 +1,16 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { moreData } from "../assets/moreData";
 import { HiPlay, HiPause } from "react-icons/hi2";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const MoreCards = ({ alwaysShow = false }) => {
   const [playingItems, setPlayingItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [volumes, setVolumes] = useState({});
-  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState([]); // store user files
   const audioRefs = useRef({});
   const navigate = useNavigate();
-
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 50,
-    });
-  }, []);
 
   const toggleFavorite = (id) => {
     setFavorites((prev) =>
@@ -52,25 +42,28 @@ const MoreCards = ({ alwaysShow = false }) => {
     }
   };
 
+  // Add local file handler
   const handleFileUpload = (e) => {
     const files = Array.from(e.target.files);
     const newFiles = files.map((file, index) => ({
       id: `local-${Date.now()}-${index}`,
-      title: "Added by you",
+      title:"Added by you", // remove extension
       audio: URL.createObjectURL(file),
-      thumbnail: "https://cdn-icons-png.flaticon.com/128/2912/2912048.png",
+      thumbnail:
+        "https://cdn-icons-png.flaticon.com/128/2912/2912048.png", // default music icon
     }));
+
     setUploadedFiles((prev) => [...prev, ...newFiles]);
   };
 
-  const allCards = [...moreData, ...uploadedFiles];
+  const allCards = [...moreData, ...uploadedFiles]; // merge built-in + uploaded
 
   if (!alwaysShow) {
     return (
-      <div className="flex justify-center p-4 will-change-transform will-change-opacity">
+      <div className="flex justify-center p-4">
         <button
           onClick={() => navigate("/moresounds")}
-          className="w-80 lg:w-80 md:w-180 h-10 text-2xl border-2 border-[#1B5E20] text-white rounded-lg backdrop-blur-lg shadow-sm"
+          className="w-80 lg:w-80 md:w-180 h-10 text-2 border border-[#1B5E20] text-white rounded-lg backdrop-blur-lg shadow-sm"
         >
           More Sounds
         </button>
@@ -79,14 +72,13 @@ const MoreCards = ({ alwaysShow = false }) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 will-change-transform will-change-opacity">
+    <div className="flex flex-col items-center justify-center p-4 ">
+      {/* Sound Cards */}
       <div className="mt-6 flex flex-col gap-3 w-86 lg:w-300 md:w-176">
-        {allCards.map((item, index) => (
+        {allCards.map((item) => (
           <div
             key={item.id}
-            className="border border-[#1B5E20] p-3 rounded-lg w-full mx-auto bg-white/5 backdrop-blur-md flex items-center gap-2 will-change-transform will-change-opacity"
-            data-aos="fade-up"
-            data-aos-delay={`${index * 50}`}
+            className="border border-[#1B5E20] p-3 rounded-lg w-full mx-auto bg-white/5 backdrop-blur-md flex items-center gap-2"
           >
             <img
               src={item.thumbnail}
@@ -98,7 +90,9 @@ const MoreCards = ({ alwaysShow = false }) => {
               <div className="flex items-center gap-10 sm:gap-4 w-full sm:w-auto">
                 <div
                   className={`flex gap-[2px] ${
-                    playingItems.includes(item.id) ? "animate-wave" : "opacity-0"
+                    playingItems.includes(item.id)
+                      ? "animate-wave"
+                      : "opacity-0"
                   }`}
                 >
                   <div className="w-[3px] h-[12px] bg-green-400"></div>
@@ -140,7 +134,10 @@ const MoreCards = ({ alwaysShow = false }) => {
                 )}
               </button>
 
-              <button onClick={() => toggleFavorite(item.id)} className="text-white">
+              <button
+                onClick={() => toggleFavorite(item.id)}
+                className="text-white"
+              >
                 {favorites.includes(item.id) ? (
                   <FaHeart className="h-5 w-5 text-red-500" />
                 ) : (
@@ -152,6 +149,7 @@ const MoreCards = ({ alwaysShow = false }) => {
         ))}
       </div>
 
+      {/* File Upload Button */}
       <label className="w-86 lg:w-240 md:w-176 border border-[#1B5E20] text-white text-sm font-medium rounded-lg backdrop-blur-2xl py-2 px-4 shadow-sm bg-transparent mt-6 text-center cursor-pointer">
         Add Files
         <input
@@ -163,6 +161,7 @@ const MoreCards = ({ alwaysShow = false }) => {
         />
       </label>
 
+      {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
         className="w-86 lg:w-240 md:w-176 border border-[#1B5E20] text-white text-sm font-medium rounded-lg backdrop-blur-lg py-2 px-4 shadow-sm bg-transparent mt-6"
@@ -170,15 +169,22 @@ const MoreCards = ({ alwaysShow = false }) => {
         ← Back
       </button>
 
+      {/* Wave animation styles */}
       <style>{`
         @keyframes wave {
           0% { transform: scaleY(0.3); }
           50% { transform: scaleY(1); }
           100% { transform: scaleY(0.3); }
         }
-        .animate-wave div:nth-child(1) { animation: wave 1s infinite ease-in-out; }
-        .animate-wave div:nth-child(2) { animation: wave 1s infinite ease-in-out .2s; }
-        .animate-wave div:nth-child(3) { animation: wave 1s infinite ease-in-out .4s; }
+        .animate-wave div:nth-child(1) {
+          animation: wave 1s infinite ease-in-out;
+        }
+        .animate-wave div:nth-child(2) {
+          animation: wave 1s infinite ease-in-out .2s;
+        }
+        .animate-wave div:nth-child(3) {
+          animation: wave 1s infinite ease-in-out .4s;
+        }
       `}</style>
     </div>
   );
