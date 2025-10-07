@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Plasma from "./Plasma";
 import Image1 from "../assets/asmr1.png"; 
 import SplitText from "../pages/SplitText";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const SustainabilitySection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, offset: 100 });
+  }, []);
+
   return (
     <section className="relative text-white px-4 sm:px-8 lg:px-16 py-12">
-      {/* Plasma Background */}
       <div className="absolute inset-0 z-0">
         <Plasma
-          colors={['#5227FF', '#FF9FFC', '#B19EEF' ]}
+          colors={['#bada55', '#9ed654', '#82d152']}
           mouseForce={20}
           cursorSize={100}
           isViscous={false}
@@ -27,11 +32,8 @@ const SustainabilitySection = () => {
         />
       </div>
 
-      {/* Foreground Content */}
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center lg:flex-row lg:text-left lg:items-start gap-12 relative z-10">
-        
-        {/* Right Text */}
-        <div className="w-full lg:w-3/4 xl:w-1/2 flex flex-col items-center lg:items-start">
+        <div className="w-full lg:w-3/4 xl:w-1/2 flex flex-col items-center lg:items-start will-change-transform will-change-opacity" data-aos="fade-up">
           <SplitText
             text="Why ASMR ?"
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-green-100 tropical-heading mb-6"
@@ -52,12 +54,12 @@ const SustainabilitySection = () => {
             </span>
           </h3>
 
-          <p className="text-base sm:text-lg text-green-200 mb-8 max-w-2xl">
+          <p className="text-2xl text-green-200 mb-8">
             ASMR, which stands for Autonomous Sensory Meridian Response, is a term for a tingling,
             calming sensation experienced in response to certain sounds, visuals, or touch.
           </p>
 
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start will-change-transform will-change-opacity" data-aos="fade-left">
             <img
               className="w-82 sm:w-64 md:w-72 lg:w-80 contrast-200 saturate-70 rounded-lg"
               src={Image1}
