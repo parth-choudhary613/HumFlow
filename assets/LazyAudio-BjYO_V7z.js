@@ -1,1 +1,0 @@
-import{r as o,j as r}from"./index-hchCIJmx.js";const e=o.forwardRef(({src:e,volume:s=1,loop:a=!1},t)=>(o.useEffect(()=>{t.current&&(t.current.volume=s/100)},[s,t]),r.jsx("audio",{ref:t,src:e,preload:"auto",loop:a})));export{e as default};
