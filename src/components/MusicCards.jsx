@@ -34,7 +34,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
   }, []);
 
   return (
-    <div className="w-40 lg:w-full max-w-[11.5rem] min-h-[16rem] sm:min-h-[15rem] rounded-xl relative overflow-hidden shadow-lg">
+    <div className=" sm:w-full max-w-[17rem] min-h-[22rem] rounded-xl relative overflow-hidden shadow-lg">
       {/* Background video */}
       <video
         ref={videoRef}
@@ -46,31 +46,31 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
       />
 
       {/* Glass UI overlay */}
-      <div className="absolute inset-0 bg-black/30 rounded-xl p-2.5 flex flex-col justify-between z-10">
+      <div className="absolute inset-0 bg-black/30 rounded-xl p-10 flex flex-col justify-between z-10">
         <div>
           <div
             style={{ backgroundImage: `url(${thumbnail})` }}
-            className="w-full h-24 bg-cover bg-center rounded-lg"
+            className="w-full h-26 bg-cover bg-center rounded-lg"
           ></div>
-          <h2 className="text-white font-semibold text-xs mt-1 truncate">{title}</h2>
+          <h2 className="text-white font-semibold text-2xl mt-1 truncate">{title}</h2>
 
           {liked ? (
             <FaHeart
-              className="text-rose-900 text-base cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
+              className="text-rose-900 text-2xl cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
               onClick={() => setLiked(false)}
             />
           ) : (
             <FaRegHeart
-              className="text-gray-100 text-base cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
+              className="text-gray-100 text-2xl cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
               onClick={() => setLiked(true)}
             />
           )}
         </div>
 
-        <div className="my-2 flex justify-center">
+        <div className=" flex justify-center">
           <button
             onClick={togglePlay}
-            className="w-9 h-9 border border-white rounded-full flex items-center justify-center"
+            className="w-11 h-11 border-4 border-white rounded-full flex items-center justify-center"
           >
             {isPlaying ? (
               <FaPause size={12} color="white" />
@@ -89,7 +89,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
             onChange={handleVolumeChange}
             className="w-full accent-white"
           />
-          <span className="text-[0.65rem] mt-1 text-white">{volume}%</span>
+          <span className="text-4lg text-white">{volume}%</span>
         </div>
 
         <audio ref={audioRef} src={audioSrc} preload="auto" loop />

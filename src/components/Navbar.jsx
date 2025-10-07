@@ -12,7 +12,7 @@ function Navbar() {
         {/* === Logo === */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="Logo" className="w-16 h-auto" />
+            <img src={Logo} alt="Logo" className="w-16 h-auto md:w-20 sm:w-26 " />
             <span className="sr-only">Website Title</span>
           </Link>
         </div>
