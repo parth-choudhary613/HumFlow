@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaRegHeart, FaHeart } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -8,6 +10,15 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
 
   const audioRef = useRef(null);
   const videoRef = useRef(null);
+
+  // Initialize AOS and cleanup on unmount
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, offset: 50 });
+    return () => {
+      audioRef.current?.pause();
+      videoRef.current?.pause();
+    };
+  }, []);
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -26,16 +37,13 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
     if (audioRef.current) audioRef.current.volume = vol / 100;
   };
 
-  useEffect(() => {
-    return () => {
-      audioRef.current?.pause();
-      videoRef.current?.pause();
-    };
-  }, []);
-
   return (
-    <div className=" sm:w-full max-w-[17rem] min-h-[22rem] rounded-xl relative overflow-hidden shadow-lg">
-      {/* Background video */}
+    <div
+      className="sm:w-full max-w-[17rem] min-h-[22rem] rounded-xl relative overflow-hidden shadow-lg will-change-transform will-change-opacity"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      {/* Lazy-loaded video */}
       <video
         ref={videoRef}
         src={videoSrc}
@@ -43,15 +51,18 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         muted
         loop
         playsInline
+        preload="metadata"
+        loading="lazy"
       />
 
-      {/* Glass UI overlay */}
       <div className="absolute inset-0 bg-black/30 rounded-xl p-10 flex flex-col justify-between z-10">
         <div>
           <div
             style={{ backgroundImage: `url(${thumbnail})` }}
             className="w-full h-26 bg-cover bg-center rounded-lg"
+            loading="lazy"
           ></div>
+
           <h2 className="text-white font-semibold text-2xl mt-1 truncate">{title}</h2>
 
           {liked ? (
@@ -67,16 +78,12 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
           )}
         </div>
 
-        <div className=" flex justify-center">
+        <div className="flex justify-center">
           <button
             onClick={togglePlay}
             className="w-11 h-11 border-4 border-white rounded-full flex items-center justify-center"
           >
-            {isPlaying ? (
-              <FaPause size={12} color="white" />
-            ) : (
-              <FaPlay size={12} color="white" />
-            )}
+            {isPlaying ? <FaPause size={12} color="white" /> : <FaPlay size={12} color="white" />}
           </button>
         </div>
 

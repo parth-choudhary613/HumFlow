@@ -1,34 +1,36 @@
-import { useState } from "react";
+import { useState, Suspense, lazy } from "react";
 import { FaPlay, FaPause, FaTrash, FaRegHeart } from "react-icons/fa";
-import SoundCard from "../components/SoundCards";
-import Extracards from "../components/MoreCards"
-import ASMR from "../components/Asmr";
 import SplitText from "./SplitText";
+
+// Lazy load heavy components
+const SoundCard = lazy(() => import("../components/SoundCards"));
+const Extracards = lazy(() => import("../components/MoreCards"));
+const ASMR = lazy(() => import("../components/Asmr"));
+
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-
   const togglePlay = () => setIsPlaying((prev) => !prev);
 
   return (
     <>
-      <div className=" flex flex-col items-center justify-start text-white p-2">
+      <div className="flex flex-col items-center justify-start text-white p-2">
         {/* Header Section */}
-        <h1 className=" text-8xl md:text-12xl sm:text-12xl mt-28 tropical-heading text-center ">
+        <h1 className="text-8xl md:text-12xl sm:text-12xl mt-28 tropical-heading text-center">
           <SplitText
-  text="HumFlow"
-  delay={100}
-  duration={3}
-  ease="power3.out"
-  splitType="chars"
-  from={{ opacity: 0, y: 40 }}
-  to={{ opacity: 1, y: 0 }}
-  threshold={0.1}
-  rootMargin="-100px"
-  textAlign="center"
-  onLetterAnimationComplete={Home}
-/>
+            text="HumFlow"
+            delay={100}
+            duration={3}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
         </h1>
-        <div className=" text-shadow-lg/30 text-gray-100 md:text-2xl text-center">
+
+        <div className="text-shadow-lg/30 text-gray-100 md:text-2xl text-center">
           <h4>Flow with Hmmm...</h4>
         </div>
 
@@ -57,7 +59,7 @@ const Home = () => {
             {["TIMERS", "MIXES", "SHARE"].map((label) => (
               <button
                 key={label}
-                className="px-7 py-3 border-3 border-[#1B5E20] lg:text-2sm md:sm:text-3xl rounded-4xl hover:bg-[#1B5E20] hover:text-white transition  backdrop-blur-lg"
+                className="px-7 py-3 border-3 border-[#1B5E20] lg:text-2sm md:sm:text-3xl rounded-4xl hover:bg-[#1B5E20] hover:text-white transition backdrop-blur-lg"
               >
                 {label}
               </button>
@@ -65,9 +67,19 @@ const Home = () => {
           </div>
         </div>
       </div>
-      < SoundCard />
-      <Extracards />  
-      <ASMR />
+
+      {/* Lazy-loaded sections with Suspense */}
+      <Suspense fallback={<div className="text-center text-white p-20">Loading Sounds...</div>}>
+        <SoundCard />
+      </Suspense>
+
+      <Suspense fallback={<div className="text-center text-white p-20">Loading More Sounds...</div>}>
+        <Extracards />
+      </Suspense>
+
+      <Suspense fallback={<div className="text-center text-white p-20">Loading ASMR Section...</div>}>
+        <ASMR />
+      </Suspense>
     </>
   );
 };
