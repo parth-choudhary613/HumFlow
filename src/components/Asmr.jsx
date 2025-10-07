@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import Plasma from "./Plasma";
+import React, { useEffect, Suspense, lazy } from "react";
 import SplitText from "../pages/SplitText";
 import Image1 from "../assets/asmr1.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+const Plasma = lazy(() => import("./Plasma"));
 
 const SustainabilitySection = () => {
   useEffect(() => {
@@ -14,23 +15,25 @@ const SustainabilitySection = () => {
     <section className="relative text-white px-4 sm:px-8 lg:px-16 py-12 will-change-transform will-change-opacity" data-aos="fade-up">
       {/* Plasma Background */}
       <div className="absolute inset-0 z-0">
-        <Plasma
-          colors={['#bada55', '#9ed654', '#82d152']}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        />
+        <Suspense fallback={<div className="w-full h-full bg-black"></div>}>
+          <Plasma
+            colors={['#bada55', '#9ed654', '#82d152']}
+            mouseForce={20}
+            cursorSize={100}
+            isViscous={false}
+            viscous={30}
+            iterationsViscous={32}
+            iterationsPoisson={32}
+            resolution={0.5}
+            isBounce={false}
+            autoDemo={true}
+            autoSpeed={0.5}
+            autoIntensity={2.2}
+            takeoverDuration={0.25}
+            autoResumeDelay={3000}
+            autoRampDuration={0.6}
+          />
+        </Suspense>
       </div>
 
       {/* Foreground Content */}
