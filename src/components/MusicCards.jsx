@@ -39,7 +39,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
 
   return (
     <div
-      className=" min-w-80 h-100 sm:w-20 justify-center rounded-xl relative overflow-hidden shadow-lg will-change-transform will-change-opacity"
+      className="w-80 h-100 sm:w-110 sm:h-130 justify-center rounded-xl relative overflow-hidden will-change-transform will-change-opacity"
       // data-aos="fade-up"
       // data-aos-delay="100"
     >
@@ -47,7 +47,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
       <video
         ref={videoRef}
         src={videoSrc}
-        className="absolute inset-0 w-full h-full object-cover opacity-25"
+        className="absolute inset-0 w-full h-full object-cover"
         muted
         loop
         playsInline
@@ -55,24 +55,24 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         loading="lazy"
       />
 
-      <div className="absolute inset-0 rounded-xl p-10 flex flex-col justify-between">
+      <div className="absolute inset-0 rounded-xl p-10 flex flex-col justify-between ">
         <div>
           <div
             style={{ backgroundImage: `url(${thumbnail})` }}
-            className="w-auto h-32 bg-cover bg-center rounded-lg"
+            className="w-auto h-32 sm:h-60 bg-cover bg-center rounded-lg"
             loading="lazy"
           ></div>
 
-          <h2 className="text-white font-semibold text-2xl mt-1 truncate">{title}</h2>
+          <h2 className="text-white font-bold text-3xl">{title}</h2>
 
           {liked ? (
             <FaHeart
-              className="text-rose-900 text-2xl cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
+              className="text-rose-900 sm:text-2xl text-2xl cursor-pointer  transition-all duration-200 hover:scale-125"
               onClick={() => setLiked(false)}
             />
           ) : (
             <FaRegHeart
-              className="text-gray-100 text-2xl cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
+              className="text-gray-100 text-2xl  sm:text-2xl cursor-pointer  transition-all duration-200 hover:scale-125"
               onClick={() => setLiked(true)}
             />
           )}
@@ -81,22 +81,22 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         <div className="flex justify-center">
           <button
             onClick={togglePlay}
-            className="w-11 h-11 border-4 border-white rounded-full flex items-center justify-center"
+            className="w-11 h-11 sm:w-20 sm:h-20 border-4 border-white sm:text-3xl rounded-full flex items-center justify-center"
           >
-            {isPlaying ? <FaPause size={12} color="white" /> : <FaPlay size={12} color="white" />}
+            {isPlaying ? <FaPause size={28} color="white" /> : <FaPlay size={28} color="white" />}
           </button>
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center m-2">
           <input
             type="range"
             min="0"
             max="100"
             value={volume}
             onChange={handleVolumeChange}
-            className="w-full accent-white"
+            className="w-full h- accent-white"
           />
-          <span className="text-4lg text-white">{volume}%</span>
+          <span className="text-4lg text-white m-1">{volume}%</span>
         </div>
 
         <audio ref={audioRef} src={audioSrc} preload="auto" loop />
