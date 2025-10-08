@@ -40,7 +40,7 @@ const cardData = [
     audioSrc: "assets/audio6.mp3",
     videoSrc: "assets/insects.mp4",
     thumbnail: "assets/insect.png",
-    title: "insect Sounds",
+    title: "Insect Sounds",
   },
   {
     id: 7,

@@ -87,17 +87,20 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
           </button>
         </div>
 
-        <div className="flex flex-col items-center m-2">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={volume}
-            onChange={handleVolumeChange}
-            className="w-full h- accent-white"
-          />
-          <span className="text-4lg text-white m-1">{volume}%</span>
-        </div>
+   <div className="flex flex-col items-center m-2">
+<input
+  type="range"
+  min="0"
+  max="100"
+  value={volume}
+  onChange={handleVolumeChange}
+  className="w-full custom-slider mt-4 accent-white"
+  style={{ '--value': `${volume}%` }}
+/>
+
+     <span className="text-2xl text-white mt-2">{volume}%</span> 
+     </div>
+
 
         <audio ref={audioRef} src={audioSrc} preload="auto" loop />
       </div>
