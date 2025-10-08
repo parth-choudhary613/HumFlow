@@ -7,7 +7,7 @@ const Soundcards = () => {
   const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 lg:gap-6 p-4">
+    <div className="grid grid-rows-4 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-2 justify-center gap-x-4 gap-y-2 p-4 ml-24">
       {cardData.map((card) => (
         <MusicCard
           key={card.id}

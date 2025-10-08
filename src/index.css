@@ -11,14 +11,6 @@ body {
 .tropical-heading {
   font-family: "TropicalTasteDemo", sans-serif;
 }
-
-.bungee-outline-regular {
-  font-family: "National Park", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* Ensure the app container is full-screen */
 .app-container {
   position: relative;
@@ -41,24 +33,6 @@ body {
   filter: blur(2px) brightness(100%);
   z-index: -1;
 }
-
-/* CONTENT WRAPPER */
-.overlay-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-/* MAIN AREA: grows to fill available space */
-.main-content {
-  flex: 1; /* Pushes footer to bottom */
-  padding: 1rem; /* for a little breathing room */
-}
-
-/* RESPONSIVE TYPOGRAPHY EXAMPLE */
-/* You can add media queries to tweak font-sizes at breakpoints */
 @font-face {
   font-family: "TropicalTasteDemo";
   src: url("./fonts/Tropical Taste Demo.otf") format("opentype");

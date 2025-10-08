@@ -1,38 +1,26 @@
-import { useState, useRef, useEffect, Suspense, lazy } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaRegHeart, FaHeart } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Lazy-load audio dynamically
-const LazyAudio = lazy(() => import("./LazyAudio"));
-
 const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(80);
+  const [volume, setVolume] = useState(100);
   const [liked, setLiked] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const cardRef = useRef(null);
-  const videoRef = useRef(null);
-  const audioRef = useRef(null);
 
-  // Initialize AOS
+  const audioRef = useRef(null);
+  const videoRef = useRef(null);
+
+  // Initialize AOS and cleanup on unmount
   useEffect(() => {
     AOS.init({ duration: 800, once: true, offset: 50 });
+    return () => {
+      audioRef.current?.pause();
+      videoRef.current?.pause();
+    };
   }, []);
 
-  // Intersection Observer for lazy media
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold: 0.5 }
-    );
-    if (cardRef.current) observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  // Play/pause handling
   const togglePlay = () => {
-    if (!isInView) return;
     if (isPlaying) {
       audioRef.current?.pause();
       videoRef.current?.pause();
@@ -51,63 +39,55 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
 
   return (
     <div
-      ref={cardRef}
-      className="sm:w-full max-w-[17rem] min-h-[22rem] rounded-xl relative overflow-hidden shadow-2xl will-change-transform will-change-opacity transform transition-transform duration-500 hover:scale-105 hover:shadow-3xl"
-      data-aos="fade-up"
-      data-aos-delay="100"
+      className=" min-w-80 h-100 sm:w-20 justify-center rounded-xl relative overflow-hidden shadow-lg will-change-transform will-change-opacity"
+      // data-aos="fade-up"
+      // data-aos-delay="100"
     >
-      {/* Video Background */}
-      {isInView && (
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-      )}
+      {/* Lazy-loaded video */}
+      <video
+        ref={videoRef}
+        src={videoSrc}
+        className="absolute inset-0 w-full h-full object-cover opacity-25"
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        loading="lazy"
+      />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 rounded-xl p-6 flex flex-col justify-between z-10 backdrop-blur-sm">
-        {/* Thumbnail + Title + Like */}
-        <div className="space-y-2">
+      <div className="absolute inset-0 rounded-xl p-10 flex flex-col justify-between">
+        <div>
           <div
-            style={{
-              backgroundImage: `url(${thumbnail})`,
-            }}
-            className="w-full h-28 bg-cover bg-center rounded-lg transition-transform duration-500 group-hover:scale-105"
+            style={{ backgroundImage: `url(${thumbnail})` }}
+            className="w-auto h-32 bg-cover bg-center rounded-lg"
             loading="lazy"
-          />
-          <h2 className="text-white font-semibold text-xl truncate">{title}</h2>
-          <div>
-            {liked ? (
-              <FaHeart
-                className="text-rose-500 text-2xl cursor-pointer transition-transform duration-200 hover:scale-125"
-                onClick={() => setLiked(false)}
-              />
-            ) : (
-              <FaRegHeart
-                className="text-white text-2xl cursor-pointer transition-transform duration-200 hover:scale-125"
-                onClick={() => setLiked(true)}
-              />
-            )}
-          </div>
+          ></div>
+
+          <h2 className="text-white font-semibold text-2xl mt-1 truncate">{title}</h2>
+
+          {liked ? (
+            <FaHeart
+              className="text-rose-900 text-2xl cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
+              onClick={() => setLiked(false)}
+            />
+          ) : (
+            <FaRegHeart
+              className="text-gray-100 text-2xl cursor-pointer mt-1 transition-all duration-200 hover:scale-125"
+              onClick={() => setLiked(true)}
+            />
+          )}
         </div>
 
-        {/* Controls */}
-        <div className="flex justify-center items-center mt-2">
+        <div className="flex justify-center">
           <button
             onClick={togglePlay}
-            className="w-12 h-12 border-4 border-white rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110"
+            className="w-11 h-11 border-4 border-white rounded-full flex items-center justify-center"
           >
-            {isPlaying ? <FaPause size={14} color="white" /> : <FaPlay size={14} color="white" />}
+            {isPlaying ? <FaPause size={12} color="white" /> : <FaPlay size={12} color="white" />}
           </button>
         </div>
 
-        {/* Volume */}
-        <div className="flex flex-col items-center mt-2">
+        <div className="flex flex-col items-center">
           <input
             type="range"
             min="0"
@@ -116,15 +96,10 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
             onChange={handleVolumeChange}
             className="w-full accent-white"
           />
-          <span className="text-lg text-white">{volume}%</span>
+          <span className="text-4lg text-white">{volume}%</span>
         </div>
 
-        {/* Lazy Audio */}
-        {isInView && (
-          <Suspense fallback={<div className="text-white text-sm">Loading Audio...</div>}>
-            <LazyAudio ref={audioRef} src={audioSrc} volume={volume} loop />
-          </Suspense>
-        )}
+        <audio ref={audioRef} src={audioSrc} preload="auto" loop />
       </div>
     </div>
   );

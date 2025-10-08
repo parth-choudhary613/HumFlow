@@ -63,7 +63,7 @@ const MoreCards = ({ alwaysShow = false }) => {
       <div className="flex justify-center p-4">
         <button
           onClick={() => navigate("/moresounds")}
-          className="w-80 lg:w-80 md:w-180 h-10 text-2 border border-[#1B5E20] text-white rounded-lg backdrop-blur-lg shadow-sm"
+          className="w-80 lg:w-80 md:w-180 h-10 text-xl font-bold border border-[#1B5E20] text-white rounded-lg backdrop-blur-lg shadow-sm"
         >
           More Sounds
         </button>

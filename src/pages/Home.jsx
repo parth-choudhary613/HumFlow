@@ -3,7 +3,7 @@ import { FaPlay, FaPause, FaTrash, FaRegHeart } from "react-icons/fa";
 import SplitText from "./SplitText";
 
 // Lazy load heavy components
-const SoundCard = lazy(() => import("../components/SoundCards"));
+const MusicCard = lazy(() => import("../components/SoundCards"));
 const Extracards = lazy(() => import("../components/MoreCards"));
 const ASMR = lazy(() => import("../components/Asmr"));
 
@@ -70,15 +70,15 @@ const Home = () => {
 
       {/* Lazy-loaded sections with Suspense */}
       <Suspense fallback={<div className="text-center text-white p-20">Loading Sounds...</div>}>
-        <SoundCard />
+        <MusicCard />
       </Suspense>
 
       <Suspense fallback={<div className="text-center text-white p-20">Loading More Sounds...</div>}>
         <Extracards />
-      </Suspense>
 
-      <Suspense fallback={<div className="text-center text-white p-20">Loading ASMR Section...</div>}>
+        <Suspense fallback={<div className="text-center text-white p-20">Loading ASMR Section...</div>}>
         <ASMR />
+      </Suspense>
       </Suspense>
     </>
   );
