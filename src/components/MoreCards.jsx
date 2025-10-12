@@ -3,6 +3,7 @@ import { moreData } from "../assets/moreData";
 import { HiPlay, HiPause } from "react-icons/hi2";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaLeaf } from "react-icons/fa";
 
 const MoreCards = ({ alwaysShow = false }) => {
   const [playingItems, setPlayingItems] = useState([]);
@@ -61,12 +62,13 @@ const MoreCards = ({ alwaysShow = false }) => {
   if (!alwaysShow) {
     return (
       <div className="flex justify-center p-4">
-        <button
-          onClick={() => navigate("/moresounds")}
-          className="w-80 lg:w-80 md:w-180 h-10 text-xl font-bold border border-[#1B5E20] text-white rounded-lg backdrop-blur-lg shadow-sm"
-        >
-          More Sounds
-        </button>
+     <button
+  onClick={() => navigate("/moresounds")}
+  className="w-150 text-2xl flex justify-center Btn"
+>
+  <FaLeaf className="text-green-200 text-2xl group-hover:rotate-12 transition-transform duration-300" />
+  More
+</button>
       </div>
     );
   }

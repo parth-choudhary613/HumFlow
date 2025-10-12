@@ -39,7 +39,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
 
   return (
     <div
-      className="w-80 h-100 sm:w-110 sm:h-130 justify-center rounded-xl relative overflow-hidden will-change-transform will-change-opacity"
+      className="w-80 sm:w-110 sm:h-130 justify-center rounded-xl relative overflow-hidden will-change-transform will-change-opacity"
       // data-aos="fade-up"
       // data-aos-delay="100"
     >
