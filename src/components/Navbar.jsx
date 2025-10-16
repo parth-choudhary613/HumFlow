@@ -20,7 +20,7 @@ function Navbar() {
         {/* === Center Nav (visible only on md and up) === */}
         <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8 text-white">
 
-          {/* <Link to="/about" className="px-2 py-1 text-md font-medium hover:text-green-400 transition">
+          <Link to="/about" className="px-2 py-1 text-md font-medium hover:text-green-400 transition">
             About
           </Link>
           <Link to="/" className="px-2 py-1 text-md font-medium hover:text-green-400 transition">
@@ -28,7 +28,7 @@ function Navbar() {
           </Link>
           <Link to="/contact" className="px-2 py-1 text-md font-medium hover:text-green-400 transition">
             Contact
-          </Link> */}
+          </Link>
         </nav>
 
         {/* === Right Side Buttons or Toggle === */}
@@ -54,7 +54,7 @@ function Navbar() {
       </div>
 
       {/* === Mobile Dropdown Menu === */}
-      {/* {menuOpen && (
+      {menuOpen && (
         <div className="flex flex-col mt-3 items-center gap-3 md:hidden px-4 transition-all duration-300">
           <Link to="/about" className="px-3 py-2 text-sm font-medium text-white w-full text-center hover:text-green-400 transition" onClick={() => setMenuOpen(false)}>
             About
@@ -75,7 +75,7 @@ function Navbar() {
             </Link>
           </div>
         </div>
-      )} */}
+      )}
     </header>
   );
 }
