@@ -15,7 +15,7 @@ const Home = () => {
     <>
       <div className="flex flex-col items-center justify-start text-white p-2">
         {/* Header Section */}
-        <h1 className="text-8xl md:text-12xl sm:text-12xl mt-28 tropical-heading text-center">
+        <h1 className="text-8xl md:text-12xl sm:text-12xl mt-44 tropical-heading text-center">
           <SplitText
             text="HumFlow"
             delay={100}

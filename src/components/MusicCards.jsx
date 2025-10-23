@@ -39,7 +39,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
 
   return (
     <div
-      className="w-80 sm:w-110 sm:h-130 justify-center rounded-xl relative overflow-hidden will-change-transform will-change-opacity"
+      className="w-80 backdrop-blur- sm:w-110 sm:h-130 justify-center rounded-xl will-change-transform will-change-opacity relative overflow-hidden" 
       // data-aos="fade-up"
       // data-aos-delay="100"
     >
@@ -47,7 +47,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
       <video
         ref={videoRef}
         src={videoSrc}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover "
         muted
         loop
         playsInline

@@ -1,4 +1,3 @@
-// Soundcards.jsx
 import { useState } from "react";
 import MusicCard from "./MusicCards";
 import cardData from "../assets/cardData";
@@ -7,17 +6,22 @@ const Soundcards = () => {
   const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null);
 
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-2 justify-center gap-y-4 p-4 ml-6">
-      {cardData.map((card) => (
-        <MusicCard
-          key={card.id}
-          {...card}
-          currentlyPlayingId={currentlyPlayingId}
-          setCurrentlyPlayingId={setCurrentlyPlayingId}
-        />
-      ))}
-  
-    </div>
+   <div className="w-fit mx-auto grid gap-x-14 gap-y-20 mt-10 mb-5
+            grid-cols-2    <!-- default: XS -->
+            sm:grid-cols-2 <!-- small -->
+            md:grid-cols-2 <!-- medium -->
+            lg:grid-cols-4 <!-- large -->
+            xl:grid-cols-4 <!-- extra-large --">
+  {cardData.map((card) => (
+    <MusicCard
+      key={card.id}
+      {...card}
+      currentlyPlayingId={currentlyPlayingId}
+      setCurrentlyPlayingId={setCurrentlyPlayingId}
+    />
+  ))}
+</div>
+
   );
 };
 
