@@ -44,7 +44,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
       // data-aos-delay="100"
     >
       {/* Lazy-loaded video */}
-      <video
+      {/* <video
         ref={videoRef}
         src={videoSrc}
         className="absolute inset-0 w-full h-full object-cover "
@@ -53,7 +53,7 @@ const MusicCard = ({ audioSrc, videoSrc, thumbnail, title }) => {
         playsInline
         preload="metadata"
         loading="lazy"
-      />
+      /> */}
 
       <div className="absolute inset-0 rounded-xl p-10 flex flex-col justify-between ">
         <div>

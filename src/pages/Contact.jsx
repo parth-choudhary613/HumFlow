@@ -1,14 +1,25 @@
 import React from 'react';
-
+import SplitText from "./SplitText";
 const Contact = () => {
   return (
-    <section className="py-24 backdrop-blur-sm text-gray-50">
+    <section className="py-24 mt-40 backdrop-blur-sm text-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="md:flex gap-x-24 clear-left md:mb-16 mb-10">
           <div className="md:mb-0 mb-4">
-            <h2 className="text-white font-manrope text-4xl font-semibold leading-10 mb-5 m-4 sm:m-4 md:text-left text-center">
-              Get In Touch
-            </h2>
+              <h1 className="text-5xl md:text-12xl sm:text-12xl  text-gray-100  tropical-heading text-center">
+          <SplitText
+            text="Get in touch"
+            delay={100}
+            duration={3}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+        </h1>
             <p className="text-gray-50 text-lg font-normal leading-7 mb-7 md:text-left text-center">
               Whether you have a concern or simply want to say hello, we are here to facilitate communication with you.
             </p>
@@ -68,7 +79,7 @@ const Contact = () => {
               key={index}
               className="h-96 relative flex justify-center rounded-lg overflow-hidden"
             >
-              <div className="w-full h-full absolute bg-gradient-to-t from-gray-800/50 to-gray-600/50"></div>
+              <div className="w-full h-full absolute bg-gradient-to-t from-green-800/50 to-green-600/10"></div>
               <img
                 src={location.img}
                 alt={`${location.country} image`}

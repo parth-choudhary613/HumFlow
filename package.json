@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.4.0",
     "aos": "^2.3.4",
-    "framer-motion": "^12.23.16",
+    "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "lucide-react": "^0.513.0",
     "ogl": "^1.0.11",

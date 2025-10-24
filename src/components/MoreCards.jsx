@@ -152,7 +152,7 @@ const MoreCards = ({ alwaysShow = false }) => {
       </div>
 
       {/* File Upload Button */}
-      <label className="w-86 lg:w-240 md:w-176 border border-[#1B5E20] text-white text-sm font-medium rounded-lg backdrop-blur-2xl py-2 px-4 shadow-sm bg-transparent mt-6 text-center cursor-pointer">
+      <label className="w-86 Btn lg:w-240 md:w-176 border border-[#1B5E20] text-white text-sm font-medium rounded-lg backdrop-blur-2xl py-2 px-4 shadow-sm bg-transparent mt-6 text-center cursor-pointer">
         Add Files
         <input
           type="file"
@@ -166,7 +166,7 @@ const MoreCards = ({ alwaysShow = false }) => {
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        className="w-86 lg:w-240 md:w-176 border border-[#1B5E20] text-white text-sm font-medium rounded-lg backdrop-blur-lg py-2 px-4 shadow-sm bg-transparent mt-6"
+        className="w-86 Btn lg:w-240 md:w-176 border border-[#1B5E20] text-white text-sm font-medium rounded-lg backdrop-blur-lg py-2 px-4 shadow-sm bg-transparent mt-6"
       >
         ← Back
       </button>
