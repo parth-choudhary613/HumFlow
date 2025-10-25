@@ -1,6 +1,5 @@
 import React, { useEffect, Suspense } from "react";
 import SplitText from "../pages/SplitText";
-import Image1 from "../assets/asmr1.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import InfiniteScroll from './InfiniteScroll';

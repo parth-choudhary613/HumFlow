@@ -22,7 +22,7 @@ const cardData = [
     id: 4,
     audioSrc: "assets/audio4.mp3",
    lottieSrc: "assets/Bird.json",
-    title: "Birds",
+    title: "Birds Chirping",
   },
   {
     id: 5,

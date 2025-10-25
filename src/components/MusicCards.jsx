@@ -1,12 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaRegHeart, FaHeart } from "react-icons/fa";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react"; // ✅ import Lottie
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const MusicCard = ({ lottieSrc, audioSrc, title, id, playingIds, setPlayingIds }) => {
   const [volume, setVolume] = useState(100);
   const [liked, setLiked] = useState(false);
+  const [isInView, setIsInView] = useState(false); // 👈 Lazy-load trigger
+  const observerRef = useRef(null);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -21,6 +23,24 @@ const MusicCard = ({ lottieSrc, audioSrc, title, id, playingIds, setPlayingIds }
       audioRef.current?.pause();
     }
   }, [playingIds, id]);
+
+  useEffect(() => {
+    // 👀 Observe visibility for lazy-loading Lottie
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.disconnect(); // Stop observing once loaded
+          }
+        });
+      },
+      { threshold: 0.2 } // 20% visible triggers load
+    );
+
+    if (observerRef.current) observer.observe(observerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const togglePlay = () => {
     setPlayingIds((prev) =>
@@ -38,35 +58,39 @@ const MusicCard = ({ lottieSrc, audioSrc, title, id, playingIds, setPlayingIds }
     <div
       className="w-80 sm:w-110 sm:h-130 justify-center rounded-xl will-change-transform will-change-opacity relative overflow-hidden"
       data-aos="fade-up"
+      ref={observerRef}
     >
       <div className="absolute inset-0 rounded-xl p-10 flex flex-col justify-between">
-        {/* 🎨 Lottie Animation instead of video */}
-       <div
-  className="w-auto h-32 sm:h-60 rounded-lg overflow-hidden flex justify-center items-center"
-  style={{
-    filter: "grayscale(100%)",
-    transform: "translate3d(0,0,0)", // GPU acceleration
-  }}
->
-  <DotLottieReact
-    src={lottieSrc}
-    loop
-    autoplay
-    renderer="svg"
-    rendererSettings={{
-      preserveAspectRatio: "xMidYMid meet",
-      progressiveLoad: true,
-      hideOnTransparent: true,
-    }}
-    style={{
-      width: "100%",
-      height: "100%",
-      pointerEvents: "none",
-      willChange: "transform, opacity",
-    }}
-  />
-</div>
-
+        {/* 🎨 Lottie Animation (Lazy-loaded) */}
+        <div
+          className="w-auto h-32 sm:h-60 rounded-lg overflow-hidden flex justify-center items-center"
+          style={{
+            filter: "grayscale(100%)",
+            transform: "translate3d(0,0,0)",
+          }}
+        >
+          {isInView ? (
+            <DotLottieReact
+              src={lottieSrc}
+              loop
+              autoplay
+              renderer="svg"
+              rendererSettings={{
+                preserveAspectRatio: "xMidYMid meet",
+                progressiveLoad: true,
+                hideOnTransparent: true,
+              }}
+              style={{
+                width: "100%",
+                height: "100%",
+                pointerEvents: "none",
+                willChange: "transform, opacity",
+              }}
+            />
+          ) : (
+            <div className="text-gray-300 text-sm">Loading animation...</div>
+          )}
+        </div>
 
         <h2 className="text-white font-bold text-3xl mt-3">{title}</h2>
 

@@ -25,13 +25,14 @@ body {
   top: 50%;
   left: 50%;
   /* Make sure one dimension always spans the viewport */
-  min-width: 100%;
-  min-height: 100%;
+  min-width: 150%;
+  min-height: 150%;
   /* Center the video around its midpoint */
   transform: translate(-50%, -50%);
   object-fit: cover;
   filter: blur(2px) brightness(100%);
   z-index: -1;
+  overflow-x: hidden;
 }
 @font-face {
   font-family: "TropicalTasteDemo";

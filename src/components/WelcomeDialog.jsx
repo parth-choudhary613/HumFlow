@@ -17,7 +17,7 @@ const WelcomeDialog = () => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-6"
+          className="fixed inset-0  backdrop-blur-sm flex justify-center items-center z-50 p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 0.5 } }}
           exit={{ opacity: 0, transition: { duration: 0.4 } }}

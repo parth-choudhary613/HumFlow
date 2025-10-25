@@ -16,11 +16,11 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="app-container relative">
+    <div className="app-container relative overflow-x-hidden">
       <img
         src="/HumFlow/background.jpg"
         alt="Background"
-        className="bg-video will-change-transform"
+        className="bg-video h-full overflow-x-hidden"
         loading="lazy"
       />
       <WelcomeDialog />
