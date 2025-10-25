@@ -1,32 +1,24 @@
 import { useState, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaRegHeart, FaHeart } from "react-icons/fa";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react"; // ✅ import Lottie
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const MusicCard = ({ audioSrc, thumbnail, title, id, playingIds, setPlayingIds }) => {
+const MusicCard = ({ lottieSrc, audioSrc, title, id, playingIds, setPlayingIds }) => {
   const [volume, setVolume] = useState(100);
   const [liked, setLiked] = useState(false);
-
   const audioRef = useRef(null);
-  const videoRef = useRef(null);
 
-  // Initialize AOS and cleanup on unmount
   useEffect(() => {
     AOS.init({ duration: 800, once: true, offset: 50 });
-    return () => {
-      audioRef.current?.pause();
-      videoRef.current?.pause();
-    };
+    return () => audioRef.current?.pause();
   }, []);
 
-  // Sync audio playback with playingIds
   useEffect(() => {
     if (playingIds.includes(id)) {
       audioRef.current?.play();
-      videoRef.current?.play();
     } else {
       audioRef.current?.pause();
-      videoRef.current?.pause();
     }
   }, [playingIds, id]);
 
@@ -45,36 +37,61 @@ const MusicCard = ({ audioSrc, thumbnail, title, id, playingIds, setPlayingIds }
   return (
     <div
       className="w-80 sm:w-110 sm:h-130 justify-center rounded-xl will-change-transform will-change-opacity relative overflow-hidden"
+      data-aos="fade-up"
     >
       <div className="absolute inset-0 rounded-xl p-10 flex flex-col justify-between">
-        <div>
-          <div
-            style={{ backgroundImage: `url(${thumbnail})` }}
-            className="w-auto h-32 sm:h-60 bg-cover bg-center rounded-lg"
-            loading="lazy"
-          ></div>
+        {/* 🎨 Lottie Animation instead of video */}
+       <div
+  className="w-auto h-32 sm:h-60 rounded-lg overflow-hidden flex justify-center items-center"
+  style={{
+    filter: "grayscale(100%)",
+    transform: "translate3d(0,0,0)", // GPU acceleration
+  }}
+>
+  <DotLottieReact
+    src={lottieSrc}
+    loop
+    autoplay
+    renderer="svg"
+    rendererSettings={{
+      preserveAspectRatio: "xMidYMid meet",
+      progressiveLoad: true,
+      hideOnTransparent: true,
+    }}
+    style={{
+      width: "100%",
+      height: "100%",
+      pointerEvents: "none",
+      willChange: "transform, opacity",
+    }}
+  />
+</div>
 
-          <h2 className="text-white font-bold text-3xl">{title}</h2>
 
-          {liked ? (
-            <FaHeart
-              className="text-rose-900 sm:text-2xl text-2xl cursor-pointer transition-all duration-200 hover:scale-125"
-              onClick={() => setLiked(false)}
-            />
-          ) : (
-            <FaRegHeart
-              className="text-gray-100 text-2xl sm:text-2xl cursor-pointer transition-all duration-200 hover:scale-125"
-              onClick={() => setLiked(true)}
-            />
-          )}
-        </div>
+        <h2 className="text-white font-bold text-3xl mt-3">{title}</h2>
 
-        <div className="flex justify-center">
+        {liked ? (
+          <FaHeart
+            className="text-rose-900 sm:text-2xl text-2xl cursor-pointer transition-all duration-200 hover:scale-125"
+            onClick={() => setLiked(false)}
+          />
+        ) : (
+          <FaRegHeart
+            className="text-gray-100 text-2xl sm:text-2xl cursor-pointer transition-all duration-200 hover:scale-125"
+            onClick={() => setLiked(true)}
+          />
+        )}
+
+        <div className="flex justify-center mt-4">
           <button
             onClick={togglePlay}
             className="w-11 h-11 sm:w-20 sm:h-20 border-4 border-white sm:text-3xl rounded-full flex items-center justify-center"
           >
-            {playingIds.includes(id) ? <FaPause size={28} color="white" /> : <FaPlay size={28} color="white" />}
+            {playingIds.includes(id) ? (
+              <FaPause size={28} color="white" />
+            ) : (
+              <FaPlay size={28} color="white" />
+            )}
           </button>
         </div>
 
@@ -86,7 +103,6 @@ const MusicCard = ({ audioSrc, thumbnail, title, id, playingIds, setPlayingIds }
             value={volume}
             onChange={handleVolumeChange}
             className="w-full custom-slider mt-4 accent-white"
-            style={{ "--value": `${volume}%` }}
           />
           <span className="text-2xl text-white mt-2">{volume}%</span>
         </div>
