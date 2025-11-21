@@ -1,0 +1,1 @@
+import{j as s}from"./index-CTDi5WwL.js";import o from"./MoreCards-BYZEdAnC.js";import"./index-C0Ebf-Tr.js";const r=()=>s.jsx("div",{className:"pt-40 px-4",children:s.jsx(o,{alwaysShow:!0})});export{r as default};
