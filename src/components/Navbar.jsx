@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+ 
 
   return (
     <motion.header
@@ -31,7 +31,10 @@ function Navbar() {
           >
             About
           </Link>
-
+   <Link to="/" className="flex items-center">
+            <img src={Logo} alt="Logo" className="w-20 h-auto md:w-30" />
+            <span className="sr-only">Website Title</span>
+          </Link>
           <Link
             to="/contact"
             className="px-2 py-1 text-md font-medium hover:text-green-400 transition"
@@ -39,75 +42,7 @@ function Navbar() {
             Contact
           </Link>
         </nav>
-
-        {/* === Right Side Buttons or Toggle === */}
-        <div className="ml-auto flex items-center gap-3">
-          {/* Toggle button for mobile */}
-          <button
-            className="md:hidden text-gray-100 hover:text-green-400 transition"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          {/* Right buttons for desktop */}
-          <div className="hidden md:flex items-center gap-2">
-            <Link
-              to="#"
-              className="rounded-xl bg-white px-3 py-2 text-sm text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition"
-            >
-              Mute
-            </Link>
-            <Link
-              to="#"
-              className="rounded-xl bg-charcoal px-3 py-2 text-sm text-gray-100 shadow-sm hover:bg-gray-900 transition"
-            >
-              LogIn
-            </Link>
-          </div>
-        </div>
       </div>
-
-      {/* === Mobile Dropdown Menu === */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.4 }}
-          className="flex flex-col mt-3 items-center gap-3 md:hidden px-4 transition-all duration-300"
-        >
-          <Link
-            to="/about"
-            className="px-3 py-2 text-sm font-medium text-white w-full text-center hover:text-green-400 transition"
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </Link>
-          <Link
-            to="/contact"
-            className="px-3 py-2 text-sm font-medium text-white w-full text-center hover:text-green-400 transition"
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </Link>
-
-          <div className="flex gap-2 mt-2">
-            <Link
-              to="#"
-              className="rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition"
-            >
-              Mute
-            </Link>
-            <Link
-              to="#"
-              className="rounded-xl bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 transition"
-            >
-              LogIn
-            </Link>
-          </div>
-        </motion.div>
-      )}
     </motion.header>
   );
 }

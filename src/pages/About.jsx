@@ -1,5 +1,5 @@
 import React from 'react'
-import siteLogo  from "../assets/parth.jpg";
+import siteLogo  from "../assets/parth.png";
 // import Logo  from "../assets/logo.png";
 import SplitText from "./SplitText";
 const About = () => {
@@ -22,7 +22,7 @@ const About = () => {
 
                 
                 <img
-            class="rounded-full relative object-cover right-0 lg:w-[30rem] lg:h-[30rem] sm:w-[25rem] sm:h-[25rem] w-[12rem] h-[12rem] outline sm:outline-offset-[.77em] outline-offset-[.37em] outline-green-500"
+            class="rounded-full relative object-cover right-0 lg:w-[30rem] lg:h-[30rem] sm:w-[25rem] sm:h-[25rem] w-[12rem] h-[12rem] outline sm:outline-offset-[.77em] outline-offset-[.37em] outline-green-900"
             src={siteLogo} alt="About us" />
             </div>
             
